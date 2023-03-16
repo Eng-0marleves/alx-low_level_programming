@@ -1,10 +1,10 @@
 #include<stdio.h>
 int main() {
-	printf("Size of int: %d bytes", sizeof(char));
-	printf("Size of int: %d bytes", sizeof(int));
-	printf("Size of float: %d bytes", sizeof(long int));
-	printf("Size of double: %d bytes", sizeof(long long int));
-	printf("Size of char: %d byte", sizeof(float));
+	printf("Size of a char: %d byte(s)", sizeof(char));
+	printf("Size of an int: %d byte(s)", sizeof(int));
+	printf("Size of a long: %d byte(s)", sizeof(long int));
+	printf("Size of a long long int: %d byte(s)", sizeof(long long int));
+	printf("Size of a float: %d byte(s)", sizeof(float));
     
 	return 0;
 }
