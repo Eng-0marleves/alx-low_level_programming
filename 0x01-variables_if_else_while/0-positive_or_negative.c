@@ -13,7 +13,7 @@ int main(void)
 	}
 	if(n==0)
 	{
-		printf("0 is zero")
+		printf("0 is zero");
 	}
 	return (0);
 }
