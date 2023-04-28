@@ -1,33 +1,42 @@
-#ifndef _LISTS_H_
-#define _LISTS_H_
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-int _strlen(char *str);
+#include "lists.h"
 
 /**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- * for Holberton project
- */
-typedef struct list_s
+  * print_list - prints all elements of a list
+  * @h: a list to print elements of
+  * Return: the number of nodes in list
+  */
+size_t print_list(const list_t *h)
 {
-	char *str;
-	unsigned int len;
-	struct list_s *next;
-} list_t;
+	int i = 0, ret = 1;
+	char nul[] = "(nil)";
 
-int _putchar(char c);
-size_t print_list(const list_t *h);
-size_t list_len(const list_t *h);
-list_t *add_node(list_t **head, const char *str);
-list_t *add_node_end(list_t **head, const char *str);
-void free_list(list_t *head);
+	if (!h)
+		return (0);
+	if (h->str)
+		i = _strlen(h->str);
+	printf("[%d] ", i);
 
-#endif /* _LISTS_H_ */
+	if (!h->str)
+		printf("%s\n", nul);
+	else
+		printf("%s\n", h->str);
+	if (h->next)
+		ret += print_list(h->next);
+	return (ret);
+}
+
+/**
+ * _strlen - finds string length
+ * @str: string
+ * Return: length of string
+ */
+int _strlen(char *str)
+{
+	int i;
+
+	for (i = 0; *(str + i);)
+		i++;
+	return (i);
+}
